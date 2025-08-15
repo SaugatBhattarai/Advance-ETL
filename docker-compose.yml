@@ -1,0 +1,21 @@
+# version: '3.8'   # Remove or comment out this line
+services:
+  postgres:
+    image: postgres:13
+    container_name: pg_countries_container
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: demo_user
+      POSTGRES_PASSWORD: demo_pass
+      POSTGRES_DB: countriesdb
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U demo_user -d countriesdb" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pg_data:
