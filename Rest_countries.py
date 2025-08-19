@@ -8,7 +8,7 @@ url = "https://restcountries.com/v3.1/all?fields=name,region,subregion,populatio
 response = requests.get(url)
 data = response.json()
 
-# # Step 2: Transform the data into a DataFrame
+#Step 2: Transform the data into a DataFrame
 records = []
 for country in data:
     record = {
@@ -23,12 +23,8 @@ for country in data:
 df = pd.DataFrame(records)
 
 
-# # Step 3: Load Data Into the Database
-# Save the DataFrame to the database
-
-# #load libraries required
-# #create the engine
-#push dataframe to postgreSQL database
+#Step 3: Load Data Into the Database
+#Save the DataFrame to the database
 
 # Database connection settings
 db_user = "demo_user"
